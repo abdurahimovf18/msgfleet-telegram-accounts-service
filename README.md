@@ -1,57 +1,57 @@
 This repository holds code of the part of the micro-service based application: "MsgFleet". 
 
-## Responsibility
+## 📌 Responsibilities
 This Service is responsible for managing Telegram user account, via telegram client
 respecting telegram limits and lows.
 
 
-## Tech-Stacks
+## ⚙️ Tech-Stacks
 
-### FastAPI
+### ⚡️ FastAPI
 An Instrument to get the API requests from abroad and handle them with low-latency and
 Python friendly annotation via Pydantic.
 
-### SqlAlchemy
+### 🧾 SqlAlchemy
 A flexable ORM to integrate with internal database of the service (Used with Alembic)
 
-### Alembic
+### 🗄 Alembic
 Migration manager to keep tables up-to-date.
 
-### Pydantic
+### 🔁 Pydantic
 An excellent type annotation and validation library. Pydantic is used to communicate
 between functions and methods as this diogram shows: ```DTO -> Logic -> DTO```
 
-### alembic-postgresql-enum
+### 🔧 alembic-postgresql-enum
 Normalizes alembic enums working with postgresql. Alembic does not support postgresql
 enums natively well.
 
-### RabbitMQ 
+### 📦 RabbitMQ 
 An message Broker which is actively used to communicate between micro-services and
 Used as a Celery Broker.
 
-### Redis
+### 🗂 Redis
 A low-latency NoSQL database which is used as a Cache and the Celery Backend
 
-### Celery
+### 📝 Celery
 An Asynchronous service which is used to concurently manage a long term tasks
 
 Uses:
   - ```Redis``` - backend
   - ```RabbitMQ``` - Broker
 
-### HTTPX
+### 🌐 HTTPX
 A library which is used to keep communication between services due to flexibility,
 support of web-socket and http2 natively.
 
-### Poetry
+### 📍 Poetry
 A version controller wildly used to execute developer runs and tests.
 
-### Telethon
+### 📞 Telethon
 A Telegram-Client manager.
 
-## How to run?
+## 🚀 How to run?
 
-### Development
+### 📊 Development
 
 #### Install Python
 ```bash
@@ -130,5 +130,5 @@ echo "Public key saved to: $PUBLIC_KEY"
 
 #### Celebrete! You have successfully ran the code on development.
 
-### Production
+### 👥 Production
 You will use ```GitHUB Actions``` or ```GitLAB CD/CD``` to run this service.
