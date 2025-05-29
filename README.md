@@ -49,7 +49,7 @@ A version controller wildly used to execute developer runs and tests.
 ### Telethon
 A Telegram-Client manager.
 
-## How to run
+## How to run?
 
 ### Development
 
@@ -130,4 +130,5 @@ echo "Public key saved to: $PUBLIC_KEY"
 
 #### Celebrete! You have successfully ran the code on development.
 
-#### Production
+### Production
+You will use ```GitHUB Actions``` or ```GitLAB CD/CD``` to run this service.
