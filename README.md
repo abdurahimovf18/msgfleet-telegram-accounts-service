@@ -2,7 +2,7 @@ This repository holds code of the part of the micro-service based application: "
 
 ## 📌 Responsibilities
 This Service is responsible for managing Telegram user account, via telegram client
-respecting telegram limits and lows.
+respecting Telegram's rate limits and usage policies.
 
 
 ## ⚙️ Tech-Stacks
@@ -26,8 +26,8 @@ Normalizes alembic enums working with postgresql. Alembic does not support postg
 enums natively well.
 
 ### 📦 RabbitMQ 
-An message Broker which is actively used to communicate between micro-services and
-Used as a Celery Broker.
+A message broker which is actively used to communicate between micro-services and
+It is also used as a Celery broker.
 
 ### 🗂 Redis
 A low-latency NoSQL database which is used as a Cache and the Celery Backend
@@ -90,7 +90,7 @@ poetry install
 
 #### Configure the secrets
   - Open ```/secrets/``` directory
-  - write .env files. (You should to see ```{name}.env.dist``` files. Create env files like: ```{name}.env```)
+  - write .env files. (You should see ```{name}.env.dist``` files. Create env files like: ```{name}.env```)
   - Copy .env.dist file contents
   - Write correct data in it. (Generate if required in development use.)
 
@@ -128,7 +128,7 @@ echo "Private key saved to: $PRIVATE_KEY"
 echo "Public key saved to: $PUBLIC_KEY"
 ```
 
-#### Celebrete! You have successfully ran the code on development.
+#### 🎉 Celebrate! You have successfully ran the code on development.
 
 ### 👥 Production
 You will use ```GitHUB Actions``` or ```GitLAB CD/CD``` to run this service.
