@@ -20,7 +20,7 @@ Responsibility:
 How To Run:
   - Install Python and Poetry.
   - Configure all of the configurations in the secrets file.
+  - Install Dependencies via: "poetry install"
   - run command: "poetry run dev"
   - If you are running the application in the production environment then use Gunicorn.
   - Set the nginx if using this micro-service stand-alone.
-
