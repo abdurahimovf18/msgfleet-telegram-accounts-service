@@ -80,34 +80,54 @@ poetry --version
 
 ```
 
+#### Install Dependencies
+
+```bash
+# Install project dependencies via Poetry
+poetry install
+```
+
+
+#### Configure the secrets
+  - Open ```/secrets/``` directory
+  - write .env files. (You should to see ```{name}.env.dist``` files. Create env files like: ```{name}.env```)
+  - Copy .env.dist file contents
+  - Write correct data in it. (Generate if required in development use.)
+
+#### Run this
+```bash
+# run the project via poetry
+poetry run dev
+```
+
+This will run /scripts/dev.py file under the hood.
+
+#### Generate or find *.pem or *.key files if any error occures
+```bash
+#!/bin/bash
+
+# Exit immediately on error
+set -e
+
+# Optional: Output directory
+KEY_DIR="./keys"
+mkdir -p "$KEY_DIR"
+
+# Key names
+PRIVATE_KEY="$KEY_DIR/private_key.pem"
+PUBLIC_KEY="$KEY_DIR/public_key.pem"
+
+# Generate 2048-bit RSA private key
+openssl genpkey -algorithm RSA -out "$PRIVATE_KEY" -pkeyopt rsa_keygen_bits:2048
+
+# Extract public key from private key
+openssl rsa -pubout -in "$PRIVATE_KEY" -out "$PUBLIC_KEY"
+
+# Output status
+echo "Private key saved to: $PRIVATE_KEY"
+echo "Public key saved to: $PUBLIC_KEY"
+```
+
+#### Celebrete! You have successfully ran the code on development.
 
 #### Production
-
-
-
-This service is a part of the application called msgfleet. This service responsible for handling logic of telegram-user related account handling and security concerns.
-
-
-Tech-Stacks:
-  - FastAPI (As a main API handler)
-  - SqlAlchemy (Fully used as a ORM and core sql like syntax)
-  - Alembic (Migrations)
-  - Pydantic (Used to safely validate data between query, flow and endpoints and via FastAPI)
-  - alembic-postgresql-enum (to solve errors of Alembic related to postgresql enums)
-  - RabbitMQ (As a Message Broker and Celery broker)
-  - Redis (will be used to cache and/or celery backend.)
-  - Celery (To send messages)
-  - Httpx (To send communicate between services)
-  - Poetry (As a version controller)
-  - Telethon (Telegram-Client)
-
-Responsibility:
-  - Handling Telegram User account.
-
-How To Run:
-  - Install Python and Poetry.
-  - Configure all of the configurations in the secrets file.
-  - Install Dependencies via: "poetry install"
-  - run command: "poetry run dev"
-  - If you are running the application in the production environment then use Gunicorn.
-  - Set the nginx if using this micro-service stand-alone.
